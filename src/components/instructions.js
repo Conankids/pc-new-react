@@ -8,6 +8,12 @@ if (process.env.NODE_ENV == 'production') {
 	httpHost = 'http://localhost:8080';
 }
 
+var titleStyle = {
+	lineHeight: '14px',
+	height: '28px',
+	overflow: 'hidden'
+}
+
 class Instructions extends Component{
 
   constructor(props) {
@@ -40,7 +46,7 @@ class Instructions extends Component{
 						<img src={"http://s1.jiguo.com/"+this.state.order.cover+"/230x230"} />
 					  </div>
 					  <div className="instructions__product-text">
-						<div className="title">{this.state.order.event_title}</div>
+						<div className="title" style={titleStyle}>{this.state.order.event_title}</div>
 						<div className="type">{this.state.order.buying_name}</div>
 					  </div>
 					</div>

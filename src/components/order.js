@@ -3,6 +3,7 @@ import DialogBase from './uicomponent/dialogbase';
 import dialog from './toast/dialog';
 import close_icon from './uicomponent/icon/close_icon.svg';
 
+
 class Order extends Component {
 
 	constructor(props) {
@@ -25,7 +26,7 @@ class Order extends Component {
 
 	upNotAll() {
 		window.__ORDER_DATA__ = window.__ORDER_DATA__.map((item) => {
-			if(item.orderid==this.state.orderid && item.draft_num>0){
+			if (item.orderid == this.state.orderid && item.draft_num > 0) {
 				item.draft_num -= 1;
 			}
 			return item;
@@ -132,7 +133,7 @@ class Order extends Component {
 
 	ok() {
 		if (
-			window.__ORDER_META__.orderid!=this.state.orderid &&
+			window.__ORDER_META__.orderid != this.state.orderid &&
 			this.state.item.draft_num > 0
 		) {
 			window.onbeforeunload = null;
