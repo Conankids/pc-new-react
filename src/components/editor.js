@@ -69,7 +69,7 @@ class Editor extends Component {
 				if (!callback) {
 					window.onbeforeunload = null;
 					setTimeout(() => {
-						window.location = '/user/article.html';
+						window.location = '/user/article.html?openerweima=1';
 					}, 300);
 				}
 			} else {
@@ -155,7 +155,7 @@ class Editor extends Component {
 					</div>
 				</div>
 				<Order
-					show={!(/source=user-article/i.test(window.location.href) )}
+					show={!(/source=user-article/i.test(window.location.href))}
 					ref={o => {
 						this.Order = o;
 						this._refs.Order = o;
@@ -164,10 +164,10 @@ class Editor extends Component {
 		);
 	}
 
-	validationAll(_val,scroll) {
+	validationAll(_val, scroll) {
 		var validation = true, post = {}, v, _this = this;
 		for (var i in _this._refs) {
-			v = _this._refs[i].validation(_val,scroll);
+			v = _this._refs[i].validation(_val, scroll);
 			if (!v) {
 				validation = false;
 				break;
@@ -268,12 +268,12 @@ class Editor extends Component {
 
 						if (offset.top - 100 <= scrollTop) {
 							editor__tools_tips.addClass('editor__tools-arrow-down').css({
-								left: offset.left - ( tips_w / 2 ) + 20,
+								left: offset.left - (tips_w / 2) + 20,
 								top: offset.top + tips_h + 18,
 							});
 						} else {
 							editor__tools_tips.removeClass('editor__tools-arrow-down').css({
-								left: offset.left - ( tips_w / 2 ) + 20,
+								left: offset.left - (tips_w / 2) + 20,
 								top: offset.top - tips_h - 8,
 							});
 						}
@@ -435,7 +435,7 @@ class Editor extends Component {
 		if (!this.previewBtn) {
 			this.previewBtn = jQuery('.preview,.post-article');
 		}
-		if (this.validationAll(true,'not').result) {
+		if (this.validationAll(true, 'not').result) {
 			this.previewBtn.addClass('btn-red');
 		} else {
 			this.previewBtn.removeClass('btn-red');
