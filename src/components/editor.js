@@ -69,7 +69,7 @@ class Editor extends Component {
 				if (!callback) {
 					window.onbeforeunload = null;
 					setTimeout(() => {
-						window.location = '/user/article.html?openerweima=1';
+						window.location = '/user/article.html' + (data.orderid ? '?openerweima=1' : '');
 					}, 300);
 				}
 			} else {
