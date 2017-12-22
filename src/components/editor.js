@@ -388,7 +388,7 @@ class Editor extends Component {
 					}).on('mouseleave', 'img', function () {
 						if (_temp_id_string) {
 							_temp_id_timer = setTimeout(function () {
-								_temp_id_string.remove();
+								_temp_id_string && _temp_id_string.remove();
 								_temp_id_string = null;
 								doc.find('.editor__reinstate-wrap').remove();
 							}, 100);
@@ -412,6 +412,19 @@ class Editor extends Component {
 						}
 					});
 
+
+					function rule(root) {
+						root.children && root.children.forEach((item) => {
+							if (item.children && item.children.length) {
+								rule(item)
+							} else {
+								if (item.attrs['class'] && item.attrs['class'].indexOf('editor__reinstate-wrap')>-1) {
+									item.parentElement && item.parentElement.removeChild(item)
+								}
+							}
+						})
+					}
+					this.addOutputRule(rule)
 				}
 			});
 			_this.state.editor.Component = this;
