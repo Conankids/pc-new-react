@@ -104,7 +104,7 @@ module.exports = {
                 loader: 'html-loader'
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)$/,
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|swf)$/,
                 loader: 'url-loader?limit=1&name=[hash:8].[name].[ext]&publicPath=../&outputPath=images/',
             },
             {

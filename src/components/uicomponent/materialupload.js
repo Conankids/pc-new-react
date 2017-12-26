@@ -1,7 +1,8 @@
 import './_materialupload.less';
 import React from 'react';
 import jQuery from './../UEditor/third-party/jquery-1.10.2';
-import webuploader from './../UEditor/third-party/webuploader/webuploader';
+import webuploader from '../webuploader/dist/webuploader';
+import UploaderSwf from '../webuploader/dist/Uploader.swf'
 import tools from './../../tool/tools';
 import editor_roow from './../uicomponent/icon/editor_roow.svg';
 import dialog from './../toast/dialog';
@@ -150,7 +151,7 @@ class MaterialUpload extends React.Component {
 		var sizeMax = 8;
 		//上传
 		var uploader = _this.uploader = new webuploader.Uploader({
-			swf: window.UEDITOR_CONFIG.UEDITOR_HOME_URL + 'third-party/webuploader/Uploader.swf',
+			swf: UploaderSwf,
 			// 文件接收服务端。
 			server: window.UEDITOR_CONFIG.serverUrl + '&action=uploadimage',
 			// 选择文件的按钮。可选。
@@ -237,7 +238,8 @@ class MaterialUpload extends React.Component {
 			var offset = _self.offset();
 			var imgbox = _self.find('.material__thumbview');
 			var imgsrc = imgbox.find('img');
-			viewObj.stop(false, true).fadeIn();
+			// viewObj.stop(false, true).fadeIn();
+			viewObj.show();
 			viewTitle.html( imgsrc.attr('title')||imgsrc.attr('alt') );
 
 			var _img = new Image();
@@ -290,10 +292,12 @@ class MaterialUpload extends React.Component {
 			}
 
 		}).on('mouseleave', '.material__item-inner-show-larg', function () {
-			viewObj.stop(false, true).fadeOut();
+			// viewObj.stop(false, true).fadeOut();
+			viewObj.hide();
 			right_error.stop(false, true).fadeOut();
 		}).on('click', '.material__hover-close', function () {
-			jQuery(this).parent().stop(false, true).fadeOut();
+			// jQuery(this).parent().stop(false, true).fadeOut();
+			jQuery(this).parent().hide();
 		});
 
 	}
