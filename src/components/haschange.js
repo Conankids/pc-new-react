@@ -29,7 +29,7 @@ class HasChange extends Component {
 				<div ref={o=>this.change__body=o} className={"change__body " + (this.state.show ? 'show' : '')}>
 					<div className="change__body-inner">
 						<div className="change__body-title">修改建议</div>
-						<div className="change__body-desc" dangerouslySetInnerHTML={{__html: 'scssd<br>scscs'}} />
+						<div className="change__body-desc" dangerouslySetInnerHTML={{__html: (window.__BLOG_DATA__.describe||'').replace('\n','<br>')}} />
 					</div>
 				</div>
 			</div>
