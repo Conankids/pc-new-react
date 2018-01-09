@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import jQuery from './UEditor/third-party/jquery-1.10.2';
-import webuploader from './UEditor/third-party/webuploader/webuploader';
+import webuploader from './webuploader/dist/webuploader';
+import UploaderSwf from './webuploader/dist/Uploader.swf';
 import dialog from './toast/dialog';
 
 class Cover extends Component {
@@ -59,7 +60,7 @@ class Cover extends Component {
 		var sizeMax = 8;
 		//上传
 		var uploader = _this.uploader = new webuploader.Uploader({
-			swf: window.UEDITOR_CONFIG.UEDITOR_HOME_URL + 'third-party/webuploader/Uploader.swf',
+			swf: UploaderSwf,
 			// 文件接收服务端。
 			server: window.UEDITOR_CONFIG.serverUrl + '&action=uploadimage',
 			// 选择文件的按钮。可选。
