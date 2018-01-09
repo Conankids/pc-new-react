@@ -55,7 +55,6 @@ class Cover extends Component {
 	}
 
 	componentDidMount() {
-
 		var _this = this;
 		var sizeMax = 8;
 		//上传
