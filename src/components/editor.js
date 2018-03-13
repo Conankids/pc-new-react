@@ -182,6 +182,7 @@ class Editor extends Component {
 	}
 
 	validation(_val) {
+		// jQuery('body', _this.state.editor.document).find('editor__reinstate-wrap').remove()
 		var content = this.state.editor.getContent();
 		if (!content || ('EE' + content).indexOf('<p id="initContent">文章正文...</p>') > 0) {
 			if (_val) {
@@ -191,7 +192,7 @@ class Editor extends Component {
 			content = '';
 		}
 		return {
-			content: content
+			content: String(content).replace(/<div\s+class="editor__reinstate-wrap"[^>]*>[^<]*<\/div>/g,'')
 		};
 	}
 
