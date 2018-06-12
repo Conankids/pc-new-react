@@ -104,7 +104,7 @@ class CreatePreviewVideo extends React.Component {
 			var p = jQuery(this.videoBox).find('.video-wrap-box');
 			var img = p.find('[data-url]');
 			img.attr('_url', img.attr('data-url')).removeAttr('data-url');
-			this.props.parent.insertVideo.call(this.props.parent, '<p style="text-align: center">'+p.html()+'</p>' );
+			this.props.parent.insertVideo.call(this.props.parent, '<p style="text-align: center">' + p.html() + '</p>');
 			img.attr('data-url', img.attr('_url')).removeAttr('_url');
 		}
 	}
@@ -182,7 +182,7 @@ class CreatePreviewVideo extends React.Component {
 			if (url.match("v.qq.com") || url.match("video.qq.com") || url.match("imgcache.qq.com")) {
 				url = 'http://v.qq.com/iframe/player.html?vid=' + getKeyVal(url, 'vid') + '&width=640&height=350&auto=0';
 			} else if (url.match("youku.com")) {
-				url.match(/http:\/\/player.youku.com\/player.php\/sid\/(.+)\/v.swf/);
+				url.match(/https?:\/\/player.youku.com\/player.php\/sid\/(.+)\/v.swf/);
 				url = 'http://player.youku.com/embed/' + RegExp.$1;
 			}
 		}
