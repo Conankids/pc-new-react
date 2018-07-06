@@ -5,7 +5,7 @@
 # WebStorm
 #
 .idea
-
+.webpack_cache
 # node.js
 #
 node_modules/

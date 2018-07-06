@@ -45,7 +45,7 @@ common.plugins = [
 	new CopyWebpackPlugin([{
 		from: __dirname + '/src/components/UEditor',
 		to: __dirname + '/dist/UEditor'
-	}])
+	}]),
 ];
 
 module.exports = common;
