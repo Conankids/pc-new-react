@@ -43,7 +43,7 @@ class CreatePreviewVideo extends React.Component {
 			<div className="video__wrap">
 				<div className="video__input-box">
 					<input
-						placeholder="粘贴视频地址并键入回车，目前支持优酷、腾讯视频、搜狐视频的视频链接"
+						placeholder="粘贴视频地址并键入回车，目前支持优酷、腾讯视频、搜狐视频、哔哩哔哩的视频链接"
 						defaultValue={this.state.url}
 						onChange={event => {
 							this.setState({

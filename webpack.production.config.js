@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var v = 'v1.0.0';
 
-common.output.path = path.join('/Users/jiangzg/PhpstormProjects/JIGUO/cdn/static@2.0/pc/', v);
+common.output.path = path.join('/本地文件/jiguozhidx/jiguo-dev/cdn/static@2.0/pc/', v);
 
 common.output.publicPath = 'http://cdn.jiguo.com/static@2.0/pc/' + v + '/';
 common.module.loaders.forEach((item, index) => {
@@ -49,7 +49,7 @@ common.plugins = [
 	// })
 	new HtmlWebpackPlugin({
 		template: '!!ejs-loader!src/index.php',
-		filename: '/Users/jiangzg/PhpstormProjects/JIGUO/jiguo/protected/views/user/post.php',
+		filename: '/本地文件/jiguozhidx/jiguo-dev/jiguo/protected/views/user/post.php',
 		minify: { //压缩HTML文件
 			collapseWhitespace: true, //删除空白符与换行符
 			removeAttributeQuotes: false,
@@ -83,7 +83,7 @@ common.plugins = [
 	}),
 	new CopyWebpackPlugin([{
 		from: __dirname + '/src/components/UEditor',
-		to: '/Users/jiangzg/PhpstormProjects/JIGUO/cdn/static@2.0/pc/UEditor'
+		to: '/本地文件/jiguozhidx/jiguo-dev/cdn/static@2.0/pc/UEditor'
 	}])
 ];
 

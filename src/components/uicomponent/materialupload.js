@@ -354,7 +354,7 @@ class MaterialUpload extends React.Component {
 
 				_this.state.fileQueued[file.id] = item;
 
-				_this.loadImg(url, file.id, respon.type,function () {
+				_this.loadImg(url, file.id, respon,function () {
 					item.wrapli.removeClass('error uploading').addClass('success');
 				});
 				_this.uploader.removeFile(file, true);
@@ -384,7 +384,7 @@ class MaterialUpload extends React.Component {
 		});
 	}
 
-	loadImg(url, fileid, type, callBack) {
+	loadImg(url, fileid, res, callBack) {
 		var img = new Image();
 		img.onload = function () {
 			var __img__ = jQuery('#' + fileid + '-thumbview');
@@ -394,8 +394,9 @@ class MaterialUpload extends React.Component {
 					'_src': this.src,
 					'data-width': this.width,
 					'data-height': this.height,
-					'data-img-type': type || 2,
+					'data-img-type': res.type || 2,
 					'data-ratio': this.width / this.height,
+					'data-original': res.original || '',
 				});
 				(callBack || function () {})(fileid, __img__);
 			}
@@ -478,7 +479,7 @@ class MaterialUpload extends React.Component {
 		item.src = 'http://s1.jiguo.com/' + item.field + '?imageView2/2/w/640/q/100|imageMogr2/rotate/' + item.rotate + logo;
 
 		item.wrapli.addClass('loading');
-		_this.loadImg(item.src, item.fileid, item.type, function () {
+		_this.loadImg(item.src, item.fileid, item, function () {
 			item.wrapli.removeClass('loading');
 			item.wrapli.find('.material__item-inner-show-larg').trigger('mouseenter');
 			_this.props.parent.autoSave();
