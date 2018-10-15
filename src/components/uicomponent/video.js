@@ -43,7 +43,7 @@ class CreatePreviewVideo extends React.Component {
 			<div className="video__wrap">
 				<div className="video__input-box">
 					<input
-						placeholder="粘贴视频地址并键入回车，目前支持优酷、腾讯视频、搜狐视频、哔哩哔哩的视频链接"
+						placeholder="粘贴视频地址并键入回车，目前支持优酷、腾讯视频、哔哩哔哩的视频链接"
 						defaultValue={this.state.url}
 						onChange={event => {
 							this.setState({
@@ -165,8 +165,8 @@ class CreatePreviewVideo extends React.Component {
 			.replace(/v\.qq\.com\/\w+\/\w+\/[\w]+\/([\w]+)\.html/i, "imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?vid=$1")
 			.replace(/v\.qq\.com\/\w+\/\w+\/([\w]+)\.html/i, "imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?vid=$1")
 			.replace(/my\.tv\.sohu\.com\/[\w]+\/([\d]+)\/([\d]+)\.shtml.*$/i, "tv.sohu.com/upload/static/share/share_play.html#$2_$1_0_9001_0")
-			.replace(/share\.vrs\.sohu\.com\/([\w]+)\/v\.swf.*?plid=(\w+).*/i, "tv.sohu.com/upload/static/share/share_play.html#$1_$2_0_2_1");
-
+			.replace(/share\.vrs\.sohu\.com\/([\w]+)\/v\.swf.*?plid=(\w+).*/i, "tv.sohu.com/upload/static/share/share_play.html#$1_$2_0_2_1")
+			.replace(/share\.vrs\.sohu\.com\/my\/v\.swf.*?id=(\w+).*/i, "tv.sohu.com/upload/static/share/share_play.html#$1_9492279_0_9001_0");
 		if (ifram) {
 			function getKeyVal(src, key) {
 				var matchVidArray = src.toString().split('?')[1].toString().split('&'), vid = null;
@@ -178,7 +178,6 @@ class CreatePreviewVideo extends React.Component {
 				}
 				return '';
 			}
-
 			if (url.match("v.qq.com") || url.match("video.qq.com") || url.match("imgcache.qq.com")) {
 				url = 'http://v.qq.com/iframe/player.html?vid=' + getKeyVal(url, 'vid') + '&width=640&height=350&auto=0';
 			} else if (url.match("youku.com")) {
@@ -187,7 +186,9 @@ class CreatePreviewVideo extends React.Component {
 			} else if (url.match("bilibili.com")) {
 				url.match(/https?:\/\/(?:www\.)?bilibili.com\/video\/av([\da-zA-Z]+)/);
 				url = 'http://player.bilibili.com/player.html?aid=' + RegExp.$1;
-			}
+			} else if (url.match(/https?:\/\/player.youku.com\/player.php\/sid\/(.+)\/v.swf/)) {
+
+            }
 		}
 		return url;
 	}
