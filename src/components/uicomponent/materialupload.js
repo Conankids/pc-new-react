@@ -138,7 +138,7 @@ class MaterialUpload extends React.Component {
 						<div style={{fontSize: 12, color: '#999999', lineHeight: '17px', marginTop: 20}}>
 							<p>批量上传文章中需要的图片，</p>
 							<p>在撰文过程中将图片插入合适位置，</p>
-							<p>每张限8Mb之内。</p>
+							<p>每张限8Mb之内，GIF不超过4.5M。</p>
 						</div>
 					</div>
 				</div>

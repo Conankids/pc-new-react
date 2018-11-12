@@ -11,6 +11,7 @@
   "author": "蒋正庚",
   "dependencies": {
     "jquery": "^3.2.1",
+    "js-base64": "^2.4.9",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-modal": "^2.3.2",
