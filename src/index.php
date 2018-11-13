@@ -56,7 +56,7 @@
   window.__ORDER_META__ = window.__ORDER_META__ ? window.__ORDER_META__ : {};
   window.__BLOG_DATA__ = <?php echo $array_data;?>;
   window.__BLOG_DATA__ = window.__BLOG_DATA__ ? window.__BLOG_DATA__ : {};
-  window.__ORDER_DATA__ = <?php echo json_encode($order_filter);?>;
+  window.__ORDER_DATA__ = <?php echo json_encode(array_values($order_filter));?>;
   window.__BLOG_ID__ = window.__BLOG_DATA__ && window.__BLOG_DATA__.blogid;
 
  // 测试数据

@@ -53,22 +53,22 @@ common.devServer = {
 	},
 	proxy: {
 		'/api': {
-			target: 'http://new.jiguo.com',
+			target: 'http://www.jiguo.com',
 			secure: true,
 			changeOrigin: true
 		},
 		'/article': {
-			target: 'http://new.jiguo.com',
+			target: 'http://www.jiguo.com',
 			secure: true,
 			changeOrigin: true
 		},
 		'/user': {
-			target: 'http://new.jiguo.com',
+			target: 'http://www.jiguo.com',
 			secure: true,
 			changeOrigin: true
 		},
 		'/UEditor/php': {
-			target: 'http://new.jiguo.com',
+			target: 'http://www.jiguo.com',
 			secure: true,
 			pathRewrite: {
 				'^/UEditor/php': '/protected/extensions/ueditor/php'
