@@ -46,6 +46,8 @@ class MaterialUpload extends React.Component {
 		result.forEach((item) => {
 			var src = typeof item=='object'?item.src : item;
 			var title = typeof item=='object'?item.title : src;
+			var type = typeof item=='object'?item.type : 2;
+			var original = typeof item=='object'?item.original : '';
 
 			var id = String('id' + Math.random()).replace('.', '');
 			var src_arr = src.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i);
@@ -55,6 +57,8 @@ class MaterialUpload extends React.Component {
 				fileid: id,
 				field: src.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i)[1],
 				src: src,
+				type: type,
+                original: original,
 				original_url: src,
 				rotate: 0,
 				title:title
@@ -71,7 +75,7 @@ class MaterialUpload extends React.Component {
 				this.state.fileQueued[i].thumbview = jQuery('#' + i + '-thumbview');
 				this.state.fileQueued[i].wrapli = jQuery('#' + i);
 				this.state.fileQueued[i].wrapli.addClass('success');
-				this.loadImg(_temp_fileQueued[i].src, _temp_fileQueued[i].fileid);
+				this.loadImg(_temp_fileQueued[i].src, _temp_fileQueued[i].fileid, _temp_fileQueued[i]);
 			}
 		});
 	}
@@ -449,7 +453,9 @@ class MaterialUpload extends React.Component {
 		this.setImgList([{
 			src:img.src,
 			alt:img.alt||img.src,
-			title:img.title||img.src
+			title:img.title||img.src,
+            type:jQuery(img).attr('data-img-type'),
+            original:jQuery(img).attr('data-original')
 		}]);
 		jQuery(this.material__wrap_scroll).length && jQuery(this.material__wrap_scroll).scrollTop(999999);
 		this.savetimer && clearTimeout(this.savetimer);
