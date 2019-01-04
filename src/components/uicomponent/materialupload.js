@@ -149,6 +149,8 @@ class MaterialUpload extends React.Component {
 	componentDidMount() {
 		var _this = this;
 		var sizeMax = 8;
+		//gif不超过4.5M
+		var gifSizeMax = 4.5;
 		//上传
 		var uploader = _this.uploader = new webuploader.Uploader({
 			swf: UploaderSwf,
@@ -181,6 +183,10 @@ class MaterialUpload extends React.Component {
 				dialog.toast('图片不能超过' + sizeMax + 'Mb');
 				return false;
 			}
+            if(file.ext == 'gif' && file.size > gifSizeMax * 1024 * 1024){
+                dialog.toast('GIF图片不能超过' + gifSizeMax + 'Mb');
+                return false;
+            }
 		});
 		this.bindOnUploadEvent();
 		this.createViewLarg();
