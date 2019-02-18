@@ -838,6 +838,76 @@
 
 }
 
+//确认试用协议弹窗
+.confirm-agreement-wrap{
+    padding: 57px 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .confirm-close{
+        position: absolute;
+        right: 25px;
+        top: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+        transform: scale(0.8);
+        &:hover{
+            transform: scale(1.2);
+        }
+        img{
+            width: 12.5px;
+            height: 12.5px;
+        }
+    }
+    .confirm-header{
+        h3{
+            color: #333333;
+            font-size: 18px;
+        }
+    }
+    .confirm-content{
+        margin-top: 37px;
+        img{
+            width: 95px;
+        }
+    }
+    .confirm-footer{
+        margin-top: 72px;
+    }
+    .confirm-footer-line{
+        &+.confirm-footer-line{
+            margin-top: 14px;
+        }
+    }
+    .confirm-checkbox-wrap{
+        [type="checkbox"]{
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+    .confirm-footer-btn{
+        width: 270px;
+        height: 44px;
+        line-height: 44px;
+        box-sizing: border-box;
+        border:1px solid #333333;
+        color: #333333;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all .3s;
+        &.disabled{
+            color: #CCCCCC;
+            border-color: #CCCCCC;
+            cursor: not-allowed;
+        }
+        &.usable{
+            color: #FF5D44;
+            border-color: #FF5D44;
+        }
+    }
+}
 
 
 

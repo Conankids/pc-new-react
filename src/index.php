@@ -40,7 +40,7 @@
 	var s = document.getElementsByTagName("script")[0];
 	s.parentNode.insertBefore(bp, s);
   })();
-<?php
+//<?php
 //  $array_data = array_merge(json_decode(CJSON::encode($blog), true), array(
 //      'content' => $blogfild->message,
 //      'img' => json_decode($blogfild->img, true) ? json_decode($blogfild->img, true) : array()

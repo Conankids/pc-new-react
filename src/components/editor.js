@@ -12,6 +12,7 @@ import editor_roow2 from './uicomponent/icon/editor_roow2.svg';
 import dialog from './toast/dialog';
 import Order from './order';
 import HasChange from './haschange';
+import Agreement from './agreement';
 
 class Editor extends Component {
 
@@ -21,7 +22,8 @@ class Editor extends Component {
 		this.state = {
 			editor_id: editor_id || String('id' + Math.random()).replace('.', ''),
 			editor_key: editor_key || 'editor-key',
-			editor: null
+			editor: null,
+            isShowAgreement: false
 		};
 
 		this.pullOutFullScreen = this.pullOutFullScreen.bind(this);
@@ -36,6 +38,12 @@ class Editor extends Component {
 	pullOutFullScreen() {
 		this.state.editor.execCommand('yuifullscreen');
 	}
+
+    checkPostArticle(){
+	    this.setState({
+            isShowAgreement: true
+        })
+    }
 
 	postArticle(event, displayorder, beforeback, callback) {
 		var validation = false;
@@ -105,7 +113,7 @@ class Editor extends Component {
 									<div className="content__header-btn pullout-fullscreen" onClick={this.pullOutFullScreen.bind(this)}>
 										退出全屏
 									</div>
-									<div className="content__header-btn post-article" onClick={this.postArticle.bind(this, 'post', 0)}>
+									<div className="content__header-btn post-article" onClick={this.checkPostArticle.bind(this)}>
 										发表
 									</div>
 								</div>
@@ -160,6 +168,7 @@ class Editor extends Component {
 						this.Order = o;
 						this._refs.Order = o;
 					}} parent={this}/>
+                <Agreement show={this.state.isShowAgreement} parent={this}/>
 			</form>
 		);
 	}

@@ -18,7 +18,7 @@ class Dialogbase extends React.Component{
           <div className="model__table">
             <div className="model__td">
               <div  className="model__inner">
-                <div className="model__content">
+                <div className="model__content" style={this.props.contentStyle || {}}>
                   {this.props.title!==false?<div className="model__header">
                     <div className="model__title">我是标题</div>
                     <div className="model__close" onClick={this.close}>×</div>
