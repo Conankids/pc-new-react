@@ -12,7 +12,7 @@ common.plugins = [
 	...common.plugins,
 	new webpack.HotModuleReplacementPlugin(),
 	new HtmlWebpackPlugin({
-		template: '!!ejs-loader!src/index.php',
+		template: 'src/indexTpl/index.ejs.js',
 		favicon: './src/style/images/favicon.ico',
 		filename: 'index.html',
 		chunksSortMode: function (a, b) {

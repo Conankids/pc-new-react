@@ -48,7 +48,7 @@ common.plugins = [
 	//     exclude: ['vendor.js']
 	// })
 	new HtmlWebpackPlugin({
-		template: '!!ejs-loader!src/index.php',
+		template: 'src/indexTpl/index.ejs.js',
 		filename: '/本地文件/jiguozhidx/jiguo-dev/jiguo/protected/views/user/post.php',
 		minify: { //压缩HTML文件
 			collapseWhitespace: true, //删除空白符与换行符
