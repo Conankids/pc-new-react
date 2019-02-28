@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import Dialogbase from './uicomponent/dialogbase';
-import agreement_pic from './uicomponent/agreement.png';
 import close_gray_icon from './uicomponent/icon/close_gray_icon.svg';
 
-class Argeement extends Component {
+class DialogImage extends Component {
 
     constructor(props) {
         super(props)
         var state = {
-            isChecked: false,
             show: false
         }
         if (this.props.show != undefined) {
@@ -21,25 +19,12 @@ class Argeement extends Component {
     // componentWillReceiveProps(nextProps) {
     //     const {show} = this.state
     //     if (show !== nextProps.show) {
-    //         console.log('agreement',show ,nextProps)
+    //         console.log('dialog',show,nextProps)
     //         this.setState({
     //             show: true
     //         })
     //     }
     // }
-
-    handleChange(e) {
-        this.setState({
-            isChecked: e.target.checked
-        })
-    }
-
-    postArticle() {
-        if (!this.state.isChecked) {
-            return
-        }
-        this.props.parent.postArticle('post', 0)
-    }
 
     show(){
         this.setState({
@@ -47,10 +32,18 @@ class Argeement extends Component {
         })
     }
 
+    postArticle() {
+        this.close();
+        if(this.props.show_type == 1){
+            this.props.parent.sendPreview();
+        }else{
+            this.props.parent.Agreement.show();
+        }
+    }
+
     close() {
         this.setState({
-            show: false,
-            isChecked: false
+            show: false
         })
     }
 
@@ -63,28 +56,17 @@ class Argeement extends Component {
                             <img src={close_gray_icon}/>
                         </div>
                         <div className="confirm-header">
-                            <h3>确认提交文章吗？</h3>
+                            <h3>温馨提示</h3>
                         </div>
                         <div className="confirm-content">
-                            <img src={agreement_pic}/>
+                            <p className="confirm-content-text">图片素材库中有图片尚未插入文中，<br/>鼠标置于素材库图片上，点击即可插入！</p>
                         </div>
-                        <div className="confirm-footer">
-                            <div className="confirm-footer-line confirm-checkbox-wrap">
-                                <label>
-                                    <input type="checkbox"
-                                           checked={this.state.isChecked}
-                                           onChange={this.handleChange.bind(this)}/>
-                                    <span>我同意</span>
-                                    <a className="blue" href="https://www.jiguo.com/html/useragreement" target="blank">《极果试用活动协议》</a>
-                                </label>
+                        <div className="confirm-footer" style={{marginTop: 46 + 'px'}}>
+                            <div className="confirm-footer-line" onClick={this.close.bind(this)}>
+                                <div className="usable confirm-footer-btn">前往插入图片</div>
                             </div>
                             <div className="confirm-footer-line" onClick={this.postArticle.bind(this)}>
-                                <div className={(this.state.isChecked ? 'usable' : 'disabled') + " confirm-footer-btn"}>
-                                    确认提交
-                                </div>
-                            </div>
-                            <div className="confirm-footer-line" onClick={this.close.bind(this)}>
-                                <div className="confirm-footer-btn">再想想</div>
+                                <div className="confirm-footer-btn">知道了，{this.props.show_type== 1 ? '继续预览' : '继续提交文章'}</div>
                             </div>
                         </div>
                     </div>
@@ -95,5 +77,5 @@ class Argeement extends Component {
 
 }
 
-export default Argeement
+export default DialogImage
 

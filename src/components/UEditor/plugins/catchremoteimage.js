@@ -55,7 +55,7 @@ UE.plugins['catchremoteimage'] = function () {
 				continue;
 			}
 			var src = ci.getAttribute("_src") || ci.src || "";
-			if (src.indexOf('s1.jiguo.com') !== -1) {
+			if (src.indexOf('s1.jiguo.com') !== -1 || src.indexOf('s2.jiguo.com') !== -1) {
 				continue;
 			}
 			if (/^(https?|ftp|\/\/):/i.test(src) && (!catcherLocalDomainUse || test(src, catcherLocalDomain) )) {

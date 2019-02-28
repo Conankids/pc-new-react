@@ -184,13 +184,13 @@ class CreatePreviewVideo extends React.Component {
 				return '';
 			}
 			if (url.match("v.qq.com") || url.match("video.qq.com") || url.match("imgcache.qq.com")) {
-				url = 'http://v.qq.com/iframe/player.html?vid=' + getKeyVal(url, 'vid') + '&width=640&height=350&auto=0';
+				url = '//v.qq.com/iframe/player.html?vid=' + getKeyVal(url, 'vid') + '&width=640&height=350&auto=0';
 			} else if (url.match("youku.com")) {
 				url.match(/https?:\/\/player.youku.com\/player.php\/sid\/(.+)\/v.swf/);
-				url = 'http://player.youku.com/embed/' + RegExp.$1;
+				url = '//player.youku.com/embed/' + RegExp.$1;
 			} else if (url.match("bilibili.com")) {
 				url.match(/https?:\/\/(?:www\.)?bilibili.com\/video\/av([\da-zA-Z]+)/);
-				url = 'http://player.bilibili.com/player.html?aid=' + RegExp.$1;
+				url = '//player.bilibili.com/player.html?aid=' + RegExp.$1;
 			} else if (url.match(/https?:\/\/player.youku.com\/player.php\/sid\/(.+)\/v.swf/)) {
 
             }

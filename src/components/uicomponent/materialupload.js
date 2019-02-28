@@ -10,7 +10,7 @@ import close_icon from './../uicomponent/icon/close_icon.svg';
 
 var httpHost;
 if (process.env.NODE_ENV == 'production') {
-	httpHost = window.location.href.match(/http:\/\/(\w+\.jiguo\.com)/i)[1];
+	httpHost = window.location.href.match(/https?:\/\/(\w+\.jiguo\.com)/i)[1];
 } else {
 	httpHost = 'http://localhost:8080';
 }
@@ -50,12 +50,12 @@ class MaterialUpload extends React.Component {
 			var original = typeof item=='object'?item.original : '';
 
 			var id = String('id' + Math.random()).replace('.', '');
-			var src_arr = src.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i);
+			var src_arr = src.match(/https?:\/\/s[1|2]\.jiguo\.com\/([\w\-]+)\/?/i);
 			if (!src_arr) return;
 
 			var _r = {
 				fileid: id,
-				field: src.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i)[1],
+				field: src.match(/https?:\/\/s[1|2]\.jiguo\.com\/([\w\-]+)\/?/i)[1],
 				src: src,
 				type: type,
                 original: original,
@@ -355,8 +355,8 @@ class MaterialUpload extends React.Component {
 			if (respon.url && respon.state == 'SUCCESS') {
 				var url = respon.url;
 				item.src = url;
-				item.field = url.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i)[1];
-				item.original_url = 'http://s1.jiguo.com/' + item.field + '?imageView2/2/w/640/q/100';
+				item.field = url.match(/https?:\/\/s[1|2]\.jiguo\.com\/([\w\-]+)\/?/i)[1];
+				item.original_url = '//s2.jiguo.com/' + item.field + '?imageView2/2/w/640/q/100';
 				item.rotate = 0;
 				item.title = file.name.replace(/\..*/,'');
 
@@ -448,7 +448,7 @@ class MaterialUpload extends React.Component {
 	}
 
 	reinstateImage(src, img) {
-		var src_arr = img.src.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i);
+		var src_arr = img.src.match(/https?:\/\/s[1|2]\.jiguo\.com\/([\w\-]+)\/?/i);
 		if (!src_arr) return;
 		this.setImgList([{
 			src:img.src,
@@ -488,7 +488,7 @@ class MaterialUpload extends React.Component {
 		var _this = this;
 		item.rotate = ( (item.rotate || 0) + 90 ) % 360;
 		var logo = '|watermark/1/image/aHR0cDovL3dhdGVybWFyay0xMjUyMTA2MjExLnBpY3NoLm15cWNsb3VkLmNvbS8xNDk3OTQyODk2MjgzNTk0OGNiNzA1NGViZi5wbmc=/gravity/southeast/dx/20/dy/20';
-		item.src = 'http://s1.jiguo.com/' + item.field + '?imageView2/2/w/640/q/100|imageMogr2/rotate/' + item.rotate + logo;
+		item.src = '//s2.jiguo.com/' + item.field + '?imageView2/2/w/640/q/100|imageMogr2/rotate/' + item.rotate + logo;
 
 		item.wrapli.addClass('loading');
 		_this.loadImg(item.src, item.fileid, item, function () {

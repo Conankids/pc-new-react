@@ -9,7 +9,7 @@ class Cover extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			cover: window.__BLOG_DATA__.cover ? 'http://s1.jiguo.com/' + window.__BLOG_DATA__.cover + '/logo' : '',
+			cover: window.__BLOG_DATA__.cover ? '//s2.jiguo.com/' + window.__BLOG_DATA__.cover + '/logo' : '',
 			fileid: window.__BLOG_DATA__.cover ? window.__BLOG_DATA__.cover : ''
 		};
 
@@ -40,7 +40,7 @@ class Cover extends Component {
 						<div style={{color: '#999', fontSize: 14}}>建议尺寸800x400像素</div>
 					</div>
 					<div className="content__cover-wrap">
-						<img src={"http://s1.jiguo.com/" + this.state.fileid + "/640?imageView2/1/w/640/h/247/q/100"}/>
+						<img src={"//s2.jiguo.com/" + this.state.fileid + "/640?imageView2/1/w/640/h/247/q/100"}/>
 						<input type="hidden" value={this.state.fileid} name="fileid"/>
 					</div>
 					<div className="content__cover-uploadstate-bar"></div>
@@ -105,7 +105,7 @@ class Cover extends Component {
 			if (respon.url) {
 				_this.setState({
 					cover: respon.url,
-					fileid: respon.url.match(/https?:\/\/s1\.jiguo\.com\/([\w\-]+)\/?/i)[1]
+					fileid: respon.url.match(/https?:\/\/s[1|2]\.jiguo\.com\/([\w\-]+)\/?/i)[1]
 				});
 				content__cover.removeClass('error uploading').addClass('success');
 

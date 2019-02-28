@@ -3,7 +3,7 @@
 import React , { Component } from 'react';
 var httpHost;
 if (process.env.NODE_ENV == 'production') {
-	httpHost = window.location.href.match(/http:\/\/(\w+\.jiguo\.com)/i)[1];
+	httpHost = window.location.href.match(/https?:\/\/(\w+\.jiguo\.com)/i)[1];
 } else {
 	httpHost = 'http://localhost:8080';
 }
@@ -36,14 +36,14 @@ class Instructions extends Component{
 		  <div className="instructions__wrap">
 			{this.state.writing_required?
 			  <div>
-				<p>为帮您顺利完成优秀报告，极果君准备了<a href={"http://www.jiguo.com/article/article/49454.html"} target="_blank">《极果投稿须知》</a>，介绍极果投稿流程及报告审核标准。如有其他疑问，请联系极果平平微信：jiguopp或拨打400-001-9217</p>
+				<p>为帮您顺利完成优秀报告，极果君准备了<a href={"https://www.jiguo.com/article/article/49454.html"} target="_blank">《极果投稿须知》</a>，介绍极果投稿流程及报告审核标准。如有其他疑问，请联系极果平平微信：jiguopp或拨打400-001-9217</p>
 			  </div>:
 			  <div>
 				{this.state.order.orderid?
 				  <div className="instructions__link-product">
 					<div className="clear">
 					  <div className="instructions__product-img">
-						<img src={"http://s1.jiguo.com/"+this.state.order.cover+"/230x230"} />
+						<img src={"//s2.jiguo.com/"+this.state.order.cover+"/230x230"} />
 					  </div>
 					  <div className="instructions__product-text">
 						<div className="title" style={titleStyle}>{this.state.order.event_title}</div>

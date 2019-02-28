@@ -7,7 +7,7 @@ var v = 'v1.0.0';
 
 common.output.path = path.join('/本地文件/jiguozhidx/jiguo-dev/cdn/static@2.0/pc/', v);
 
-common.output.publicPath = 'http://cdn.jiguo.com/static@2.0/pc/' + v + '/';
+common.output.publicPath = '//cdn.jiguo.com/static@2.0/pc/' + v + '/';
 common.module.loaders.forEach((item, index) => {
 	if (item.loader && item.loader.indexOf('publicPath=../&outputPath=images/') > -1) {
 		common.module.loaders[index].loader = [
