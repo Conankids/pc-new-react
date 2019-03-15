@@ -347,7 +347,7 @@ class Editor extends Component {
 
                         var date = new Date();
                         var mm = formet(date.getMonth() + 1);
-                        var dd = formet(date.getDay());
+                        var dd = formet(date.getDate());
                         var hh = formet(date.getHours());
                         var ii = formet(date.getMinutes());
                         var ss = formet(date.getSeconds());
