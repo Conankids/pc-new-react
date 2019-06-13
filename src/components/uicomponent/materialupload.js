@@ -167,6 +167,7 @@ class MaterialUpload extends React.Component {
 			duplicate: true,
 			multiple: true,
 			fileSingleSizeLimit: sizeMax * 1024 * 1024,
+            compress: false,
 			// 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
 			resize: false,
 			//选完文件后，是否自动上传。
