@@ -8,7 +8,7 @@
     "build": "webpack  --progress --colors --config webpack.production.config.js",
     "dev": "webpack-dev-server --progress --hot --colors"
   },
-  "author": "蒋正庚",
+  "author": "jiguo",
   "dependencies": {
     "jquery": "^3.2.1",
     "js-base64": "^2.4.9",
